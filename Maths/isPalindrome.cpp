@@ -21,9 +21,9 @@ using namespace std;
 
 bool isPalindrome(int x){
     // Approach-2: (Reversing half of the number)
+    // Time Complexity: O(log10(x)) and Space Complexity: O(1)
     if(x < 0 || (x != 0 && x%10 == 0)) return false;
 
-    int temp = x;
     int rev = 0;
     while(x > rev){
         int digit = x % 10;
@@ -31,8 +31,7 @@ bool isPalindrome(int x){
         x /= 10;
     }
 
-    if(x == rev || x == rev/10) return true;
-    return false;
+    return (x == rev || x == rev/10);
 
     // Approach-1: (Reverse the number and then compare) 
     // Time Complexity: O(log10(x)) and Space Complexity: O(1)
