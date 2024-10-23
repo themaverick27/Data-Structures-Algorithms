@@ -15,12 +15,26 @@ Explanation: In this array, only element 4 appear once and the other elements ap
 using namespace std;
 
 int singleElement(int arr[], int n){
-    // Approach-1 (using xor gate) TC: O(N) and SC: O(1)
+    // Approach-2 (using xor gate) TC: O(N) and SC: O(1)
     int single = 0;
     for(int i = 0; i < n; i++){
         single ^= arr[i];
     }
     return single;
+
+    // Approach-1 (using Hashing)
+    // Time Complexity: O(N*logM) and Space Complexity: O(M) where M = (N/2) + 1
+    /*
+    map<int, int> mpp;
+
+    for(int i = 0; i < n; i++){
+        mpp[arr[i]]++;
+    }
+    for(auto it: mpp){
+        if(it.second == 1) return it.first;
+    }
+    return -1; // dummy return
+    */
 }
 
 int main(){
